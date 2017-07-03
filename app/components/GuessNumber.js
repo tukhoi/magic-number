@@ -26,23 +26,6 @@ class GuessNumber extends React.Component
             }));
         };
 
-        this.numberStyle = {
-            'display': 'inline-block',
-            'margin': '0.5em',
-            'text-align': 'center',
-            'background-color': '#aaddaa',
-            'color': '#034f84',
-            'width': '24px',
-            'border-radius': '50%',
-            'cursor': 'pointer',
-            'font-weight': 'bold'
-        };
-
-        this.inputStyle = {
-            'width': '10px',
-            'v-align': 'bottom'
-        };
-
         this.inPosClick = (toggleOn) => {
             if (toggleOn)
                 this.setState((prevState) => ({
@@ -70,32 +53,41 @@ class GuessNumber extends React.Component
         return (
             <tr>
                 <td>
+                    <div>
                     {
                         String("0000" + this.props.value).slice(-4).split('').map((number, i) => {
-                            return <span style={this.numberStyle} key={i}>
+                            {/*return <span style={this.numberStyle} key={i}>
                                 {number}
-                            </span>
+                            </span>*/
+                                return <button className="btn btn-info">
+                                    {number}
+                                </button>
+                            }
                         })
                     }
-                   
+                    </div>
                 </td>
                 <td>
-                    <PosButton type='InPos' clicked={this.inPosClick} disabled={this.state.done}/>
-                    <PosButton type='InPos' clicked={this.inPosClick} disabled={this.state.done}/>
-                    <PosButton type='InPos' clicked={this.inPosClick} disabled={this.state.done}/>
-                    <PosButton type='InPos' clicked={this.inPosClick} disabled={this.state.done}/>
-                    <span>{this.state.inPos}</span>
+                    <PosButton type='InPos' clicked={this.inPosClick} disabled={this.state.done}/>&nbsp;
+                    <PosButton type='InPos' clicked={this.inPosClick} disabled={this.state.done}/>&nbsp;
+                    <PosButton type='InPos' clicked={this.inPosClick} disabled={this.state.done}/>&nbsp;
+                    <PosButton type='InPos' clicked={this.inPosClick} disabled={this.state.done}/>&nbsp;
+                    <i className="glyphicon glyphicon-arrow-right"></i>&nbsp;
+                    <span className="h3">{this.state.inPos}</span>
                 </td>
                 <td>
                     {/*<input type="text" ref={(num2Input) => {this.num2Input = num2Input}}></input>*/}
-                    <PosButton type='OutPos' clicked={this.outPosClick} disabled={this.state.done}/>
-                    <PosButton type='OutPos' clicked={this.outPosClick} disabled={this.state.done}/>
-                    <PosButton type='OutPos' clicked={this.outPosClick} disabled={this.state.done}/>
-                    <PosButton type='OutPos' clicked={this.outPosClick} disabled={this.state.done}/>
-                    <span>{this.state.outPos}</span>
+                    <PosButton type='OutPos' clicked={this.outPosClick} disabled={this.state.done}/>&nbsp;
+                    <PosButton type='OutPos' clicked={this.outPosClick} disabled={this.state.done}/>&nbsp;
+                    <PosButton type='OutPos' clicked={this.outPosClick} disabled={this.state.done}/>&nbsp;
+                    <PosButton type='OutPos' clicked={this.outPosClick} disabled={this.state.done}/>&nbsp;
+                    <i className="glyphicon glyphicon-arrow-right"></i>&nbsp;
+                    <span className="h3">{this.state.outPos}</span>
                 </td>
                 <td>
-                    <button className="btn btn-success" onClick={this.tryResult} disabled={this.state.done}>Horray!</button>
+                    <button className="btn btn-success center-block" onClick={this.tryResult} disabled={this.state.done}>
+                        <i className="glyphicon glyphicon-hand-up"></i>
+                    </button>
                 </td>
             </tr>
         )

@@ -6,20 +6,28 @@ class Try extends React.Component{
     render() {
         return (
             <div className="table-reponsive">
-                <table className="table table-striped">
+                <table className="table table-bordered">
                     <thead>
                         <tr className="info">
                             <th>
-                                YOUR NUMBER?
+                                <button className="btn btn-info center-block" disabled>
+                                    <i className="glyphicon glyphicon-question-sign"></i>
+                                </button>
                             </th>
                             <th>
-                                HOW MANY DIGITS AT CORRECT POS?
+                                <button className="btn btn-primary center-block" disabled>
+                                    <i className="glyphicon glyphicon-ok"></i>
+                                </button>
                             </th>
                             <th>
-                                HOW MANY DIGITS AT INCORRECT POS?
+                                <button className="btn btn-warning center-block" disabled>
+                                    <i className="glyphicon glyphicon-ok"></i>
+                                </button>
                             </th>
                             <th>
-                                ...
+                                <button className="btn btn-success center-block" disabled>
+                                    <i className="glyphicon glyphicon-thumbs-up"></i>
+                                </button>
                             </th>
                         </tr>
                     </thead>

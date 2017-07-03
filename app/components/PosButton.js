@@ -17,12 +17,13 @@ class PosButton extends React.Component
     }
 
     render() {
-        var btnType = this.props.type == 'InPos' ? "btn-primary" : "btn-info";
+        var btnClassName = this.props.type == 'InPos' ? "btn btn-primary" : "btn btn-warning";
         var disabled = this.props.disabled ? 'disabled': '';
 
+
         return(
-            <button className="btn btnType" onClick={this.clicked} disabled={disabled}>
-                {this.state.isToggleOn ? ':)': '-'}
+            <button className={btnClassName} onClick={this.clicked} disabled={disabled}>
+                {this.state.isToggleOn ? <i className="glyphicon glyphicon-ok"></i>: <i className="glyphicon glyphicon-remove"></i>}
             </button>
         );
     }
